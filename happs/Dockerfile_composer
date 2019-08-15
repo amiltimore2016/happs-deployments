@@ -1,0 +1,9 @@
+FROM php:7.1.31-zts-alpine3.9
+
+# Composer
+RUN \
+    curl -sS https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer && \
+    composer self-update
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql 
