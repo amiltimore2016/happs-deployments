@@ -18,6 +18,8 @@ services:
        - mariadb
       image: amiltimore2016/happs 
       container_name: happs
+      volumes:
+       - ./happs/environments/development.env:/happs/.env
       ports:
        - "8000:8000"
       networks:
@@ -26,3 +28,4 @@ services:
 networks:
   happs:
     driver: bridge
+

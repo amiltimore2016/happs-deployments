@@ -3,8 +3,8 @@ FROM amiltimore2016/php-composer:1.0.0
 RUN mkdir -p /happs
 COPY src/ happs/
 WORKDIR /happs
-RUN composer update && \
-    mv .env.example .env 
+RUN composer update 
+     
     
 #php artisan migrate --seed && \
 
