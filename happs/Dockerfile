@@ -1,4 +1,4 @@
-FROM amiltimore2016/php-composer:v1
+FROM amiltimore2016/php-composer:1.0.0 
 
 RUN mkdir -p /happs
 COPY src/ happs/
@@ -11,3 +11,4 @@ RUN composer update && \
 #php artisan serve 
 EXPOSE 8000
 ENTRYPOINT ["tail", "-f", "/dev/null"]
+

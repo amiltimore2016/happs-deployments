@@ -7,7 +7,6 @@ services:
       environment:
         - MYSQL_ROOT_PASSWORD=happs
         - MYSQL_DATABASE=happsdb
-        - MYSQL_USER=root
         - MYSQL_PASSWORD=root
       ports:
         - "3306:3306"
@@ -17,7 +16,7 @@ services:
     happs:
       depends_on: 
        - mariadb
-      image: happs:v1
+      image: amiltimore2016/happs 
       container_name: happs
       ports:
        - "8000:8000"
