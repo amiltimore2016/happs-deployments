@@ -12,6 +12,7 @@ else
 	docker build -t ${IMAGE_NAME} .
 endif
 
+
 checkout: clean
 	mkdir -p src && git clone ${HAPPS_URL} src/
 
