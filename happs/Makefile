@@ -28,11 +28,11 @@ deploy: build push
 all: build push test
 
 test:
-	ifeq($(TAG),)
-		docker run -it --net=host -p 8000:8000 ${DEFAULT_IMAGE_NAME}
-	else
-		docker run -it --net=host -p 8000:8000 ${IMAGE_NAME}
-	endif
+ifeq ($(TAG),)
+	docker run -it --net=host -p 8000:8000 ${DEFAULT_IMAGE_NAME}
+else
+	docker run -it --net=host -p 8000:8000 ${IMAGE_NAME}
+endif
 
 clean:
 	rm -rf src/

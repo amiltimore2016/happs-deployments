@@ -16,7 +16,7 @@ while ! mysql -u"$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" -h 127.0.0.1 -e "show dat
          exit 1
     fi;
 done
-composer install --no-interaction
+COMPOSER_HOME=/happs composer install --no-interaction
 php artisan migrate --seed 
 
 php artisan serve 

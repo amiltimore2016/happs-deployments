@@ -1,19 +1,26 @@
 FROM php:7.1.31-zts-alpine3.9
 
+
 # Composer
-RUN \
-    curl -sS https://getcomposer.org/installer | php && \
+RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     composer self-update && \
     docker-php-ext-install mysqli && \
     docker-php-ext-install pdo_mysql && \
-    apk add mariadb-client && \
-    mkdir -p /happs
+    apk add mariadb-client 
+
+
+RUN mkdir -p /happs && \
+    chown -R 1000.1000 /happs
+
     
+USER 1000
+
 WORKDIR /happs
-    
+
+ 
 COPY src/ /happs/
-RUN composer install --no-interaction
+RUN COMPOSER_HOME=/happs composer install --no-interaction
 
 
 
