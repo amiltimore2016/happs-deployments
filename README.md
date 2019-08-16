@@ -23,7 +23,7 @@ their local docker container. We are keen on finding a solution to the described
 * A Jinja template to generate dummy PROD and DEV .env files for the happs application
 * A docker-composer.yml file that will launch local environment on user desktop.
 
-In order to have a quicker build I have a created a docker php image with mariadb client utils, pdo, and php composer basic packages to avoid long build phases, the php composer is run again during the build phase, so if there are any changes in the code it should add the dependencies then.
+In order to have a quicker build I have a created a docker [php image](https://cloud.docker.com/repository/docker/amiltimore2016/php-composer) with mariadb client utils, pdo, and php composer basic packages to avoid long build phases, the php composer is run again during the build phase, so if there are any changes in the code it should add the dependencies then.
 
 ## Requirements
 * jq and jinja2 cli
@@ -47,6 +47,7 @@ For production environment:
 
 This will build a docker happs image with production environment app settings.
 
+The files .env and run.sh are mounted as volumes on the docker composer so testing and changing of environment variables can be done in a quicker manner.
 
 ## ASUMPTIONS
    Since I don't have a gitlab environment setup, the environment variables are sourced from DUMMY_DEV_VARS.TXT and DUMMY_PROD_VARS.TXT. The ideal scenario would be to load this variables from en "env" command as they are passed by the gitlab ci/cd tool.
