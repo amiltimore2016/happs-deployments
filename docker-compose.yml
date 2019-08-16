@@ -22,7 +22,7 @@ services:
         - MYSQL_DATABASE=happsdb
         - MYSQL_USER=${MYSQL_USER}
       volumes:
-        - ./happs/environments/development.env:/happs/.env
+        - ./happs/environments/.env:/happs/.env
         - ./happs/run.sh:/happs/run.sh
       ports:
         - "8000:8000"
