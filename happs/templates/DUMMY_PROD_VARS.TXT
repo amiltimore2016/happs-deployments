@@ -1,0 +1,10 @@
+export APPL_NAME=Laravel
+export APPL_ENV=production
+export DEBUG_TRUE=false
+export APPL_LOG_LEVEL=error
+export APPL_URL=http://some.production.server.com
+export DB_HOST=db.production.com
+export DB_PORT=3306
+export DB_DATABASE=prod_db
+export DB_USERNAME=prod_user
+export DB_PASSWORD=prod_password

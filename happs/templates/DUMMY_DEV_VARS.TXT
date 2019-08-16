@@ -1,0 +1,10 @@
+export APPL_NAME=Laravel
+export APPL_ENV=local
+export DEBUG_TRUE=true
+export APPL_LOG_LEVEL=debug
+export APPL_URL=http://localhost
+export DB_HOST=127.0.0.1
+export DB_PORT=3306
+export DB_DATABASE=happsdb
+export DB_USERNAME=root
+export DB_PASSWORD=happs

@@ -3,9 +3,10 @@ FROM amiltimore2016/php-composer:1.0.0
 RUN mkdir -p /happs
 COPY src/ happs/
 COPY run.sh /happs/
-RUN chmod +x /happs/run.sh
+COPY environments/.env /happs/.env
 WORKDIR /happs
-RUN composer install --no-interaction 
+RUN chmod +x run.sh && \
+    composer install --no-interaction 
      
 EXPOSE 8000
     

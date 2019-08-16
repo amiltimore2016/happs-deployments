@@ -6,9 +6,8 @@ services:
       image: mariadb:10.2
       container_name: mariadb
       environment:
-        - MYSQL_ROOT_PASSWORD=happs
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
         - MYSQL_DATABASE=happsdb
-        - MYSQL_PASSWORD=root
       ports:
         - "3306:3306"
 
@@ -16,7 +15,7 @@ services:
       network_mode: host
       depends_on: 
         - mariadb
-      image: amiltimore2016/happs:1.0.0 
+      image: "amiltimore2016/happs:${TAG}" 
       container_name: happs
       environment:
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
