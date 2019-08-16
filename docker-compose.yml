@@ -12,6 +12,7 @@ services:
         - "3306:3306"
 
     happs:
+      user: ${CURRENT_UID}
       network_mode: host
       depends_on: 
         - mariadb

@@ -11,7 +11,7 @@ push:
 	$(MAKE) -C $(HAPPS_DIR) TAG=${TAG} push
 
 all: build push
-	TAG=${TAG} docker-compose up
+	CURRENT_UID=$(id -u):$(id -g) TAG=${TAG} docker-compose up
 
 clean: 
 	docker-compose down
