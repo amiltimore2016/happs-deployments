@@ -38,6 +38,12 @@ In the root folder of the project call make in the followin form
    make all TAG=<TAG VERSION>
 ````
 
+ If you just want to run the docker compose, just call make in the following form:
+
+```
+   make test TAG=<TAG VERSION>
+```
+
 This will build by default a happs local environment/dev image, push it to dockerhub and launch docker-compose.
 
 For production environment:
