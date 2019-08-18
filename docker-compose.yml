@@ -1,0 +1,33 @@
+version: "3.1"
+services:
+
+    mariadb:
+      network_mode: host
+      image: mariadb:10.2
+      container_name: mariadb
+      environment:
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_DATABASE=happsdb
+      ports:
+        - "3306:3306"
+
+    happs:
+      user: ${CURRENT_UID}
+      network_mode: host
+      depends_on: 
+        - mariadb
+      image: "amiltimore2016/happs:${TAG}" 
+      container_name: happs
+      environment:
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_DATABASE=happsdb
+        - MYSQL_USER=${MYSQL_USER}
+      volumes:
+        - ./happs/src:/happs
+        - ./happs/environments/.env:/happs/.env
+        - ./happs/run.sh:/happs/run.sh
+      ports:
+        - "8000:8000"
+
+
+
