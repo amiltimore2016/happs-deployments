@@ -28,7 +28,7 @@ In order to have a quicker build I have a created a docker [php image](https://c
 ## Requirements
 * jq and jinja2 cli
 * docker-compose binary and running docker
-* make util
+* make tool
 
 ## Usage
 For local development:
@@ -38,13 +38,13 @@ In the root folder of the project call make in the followin form
    make all TAG=<TAG VERSION>
 ````
 
+This will build by default a happs local environment/dev image, push it to dockerhub and launch docker-compose.
+
  If you just want to run the docker compose, just call make in the following form:
 
 ```
    make test TAG=<TAG VERSION>
 ```
-
-This will build by default a happs local environment/dev image, push it to dockerhub and launch docker-compose.
 
 For production environment:
 ```
